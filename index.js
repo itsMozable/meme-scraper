@@ -1,5 +1,5 @@
 // Import cheerio package
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 // Engage fs ))
 import fs from 'fs';
 // Import module that brings Fetch API to Node.js.
