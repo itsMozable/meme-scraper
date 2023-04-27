@@ -15,6 +15,10 @@ const body = await response.text();
 //Loading data into cheerio
 const $ = cheerio.load(body);
 
+if (!fs.existsSync('./memes')) {
+  fs.mkdirSync('./memes');
+}
+
 // Creatoing For Loop fetching 10 pictures without refresh
 for (let i = 1; i < 11; i++) {
   const currentImg = $('img', body)[i - 1].attribs.src;
