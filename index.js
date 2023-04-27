@@ -17,7 +17,7 @@ const $ = cheerio.load(body);
 
 // Creatoing For Loop fetching 10 pictures without refresh
 for (let i = 1; i < 11; i++) {
-  const currentImg = $('img', body)[i].attribs.src;
+  const currentImg = $('img', body)[i - 1].attribs.src;
   fetch(currentImg).then((res) => {
     const path = './memes/' + '0' + i + '.jpg';
     const dest = fs.createWriteStream(path);
