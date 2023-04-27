@@ -23,7 +23,7 @@ if (!fs.existsSync('./memes')) {
 // Creatoing For Loop fetching 10 pictures without refresh
 for (let i = 1; i < 11; i++) {
   const currentImg = $('img', body)[i - 1].attribs.src;
-  fetch(currentImg).then((res) => {
+  await fetch(currentImg).then((res) => {
     let path = './memes/' + '0' + i + '.jpg';
     if (i === 10) {
       path = './memes/' + i + '.jpg';
