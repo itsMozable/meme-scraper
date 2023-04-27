@@ -15,6 +15,7 @@ const body = await response.text();
 //Loading data into cheerio
 const $ = cheerio.load(body);
 
+// create folder if not existing
 if (!fs.existsSync('./memes')) {
   fs.mkdirSync('./memes');
 }
@@ -24,6 +25,9 @@ for (let i = 1; i < 11; i++) {
   const currentImg = $('img', body)[i - 1].attribs.src;
   fetch(currentImg).then((res) => {
     const path = './memes/' + '0' + i + '.jpg';
+    if (i === 10) {
+      const path = './memes/' + i + '.jpg';
+    }
     const dest = fs.createWriteStream(path);
     res.body.pipe(dest);
     console.log(currentImg);
