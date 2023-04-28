@@ -24,7 +24,7 @@ if (!fs.existsSync('./memes')) {
 for (let i = 1; i < 11; i++) {
   const currentImg = $('img', body)[i - 1].attribs.src;
   await fetch(currentImg).then((res) => {
-    let path = './memes/' + '0' + i + '.jpg';
+    let path = './memes/0' + i + '.jpg';
     if (i === 10) {
       path = './memes/' + i + '.jpg';
     }
